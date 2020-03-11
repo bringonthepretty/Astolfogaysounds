@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -60,13 +61,13 @@ public class MainActivity extends AppCompatActivity {
                 do {
                     randomValue = random.nextInt( 13);
                 } while(randomValue == oldRandomValue);
-                oldRandomValue = randomValue;
 
                 switch (randomValue){
                     case 0:{
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_1);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_2);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -81,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_3);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -88,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_4);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -95,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_5);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -102,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_6);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -109,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_7);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -116,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_8);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -123,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_9);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -130,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_10);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -137,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_11);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -144,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_12);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -151,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_13);
                             mediaPlayer.start();
+                            oldRandomValue = randomValue;
                         }
                         break;
                     }
@@ -158,6 +171,9 @@ public class MainActivity extends AppCompatActivity {
 
                 counter++;
                 countTextView.setText(String.valueOf(counter));
+                if (counter == 100000L){
+                    Toast.makeText(MainActivity.this, "are you alright? call an ambulance? or maybe 911?", Toast.LENGTH_LONG).show();
+                }
                 write(counter);
             }
         });
