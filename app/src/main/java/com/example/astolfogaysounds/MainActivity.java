@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
     Random random;
 
     private ImageView mainImageView;
-    private ImageView mainImageView2;
 
     private MediaPlayer mediaPlayer;
 
@@ -24,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mainImageView = findViewById(R.id.mainImageView);
-        mainImageView2 = findViewById(R.id.mainImageView);
 
         random = new Random();
 
