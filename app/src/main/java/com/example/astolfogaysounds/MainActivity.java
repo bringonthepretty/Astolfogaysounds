@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Random random;
 
     private ImageView imageView;
-    private int counter = 0;
+    private long counter = 0;
     private TextView countTextView;
     private int oldRandomValue;
 
@@ -169,13 +169,13 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer.release();
     }
 
-    public int read() throws Resources.NotFoundException{
-        int count = 0;
+    public long read() throws Resources.NotFoundException{
+        long count = 0;
         try {
             FileInputStream fileInputStream = openFileInput("count.txt");
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            count = Integer.parseInt(bufferedReader.readLine());
+            count = Long.parseLong(bufferedReader.readLine());
         } catch (FileNotFoundException ignored) {
 
         } catch (IOException ignored) {
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
         return count;
     }
 
-    private void write(int count){
+    private void write(long count){
 
         String string = String.valueOf(count);
 
