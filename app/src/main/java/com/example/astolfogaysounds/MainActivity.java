@@ -2,11 +2,19 @@ package com.example.astolfogaysounds;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     Random random;
 
     private ImageView imageView;
+    private int counter = 0;
+    private TextView countTextView;
+    private int oldRandomValue;
 
     private MediaPlayer mediaPlayer;
 
@@ -23,6 +34,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         imageView = findViewById(R.id.mainImageView);
+        countTextView = findViewById(R.id.counterTextView);
+
+        try {
+            counter = read();
+        } catch (Resources.NotFoundException e){
+            counter = 0;
+        }
+
+        countTextView.setText(String.valueOf(counter));
+
+        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_1);
 
         random = new Random();
 
@@ -33,7 +55,14 @@ public class MainActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (random.nextInt(13)){
+                int randomValue;
+
+                do {
+                    randomValue = random.nextInt( 13);
+                } while(randomValue == oldRandomValue);
+                oldRandomValue = randomValue;
+
+                switch (randomValue){
                     case 0:{
                         if (!mediaPlayer.isPlaying()){
                             mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_1);
@@ -106,11 +135,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                     case 10:{
                         if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_1);
+                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_11);
                             mediaPlayer.start();
                         }
-                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_11);
-                        mediaPlayer.start();
                         break;
                     }
                     case 11:{
@@ -128,6 +155,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                 }
+
+                counter++;
+                countTextView.setText(String.valueOf(counter));
+                write(counter);
             }
         });
     }
@@ -136,5 +167,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         mediaPlayer.release();
+    }
+
+    public int read() throws Resources.NotFoundException{
+        int count = 0;
+        try {
+            FileInputStream fileInputStream = openFileInput("count.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            count = Integer.parseInt(bufferedReader.readLine());
+        } catch (FileNotFoundException ignored) {
+
+        } catch (IOException ignored) {
+
+        }
+        return count;
+    }
+
+    private void write(int count){
+
+        String string = String.valueOf(count);
+
+        try {
+            FileOutputStream fileOutputStream = openFileOutput("count.txt", MODE_PRIVATE);
+            fileOutputStream.write(string.getBytes());
+        } catch (FileNotFoundException ignored) {
+        } catch (IOException ignored) {
+        }
     }
 }
