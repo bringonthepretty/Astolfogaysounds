@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     Random random;
 
-    private ImageView mainImageView;
+    private ImageView imageView;
 
     private MediaPlayer mediaPlayer;
 
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainImageView = findViewById(R.id.mainImageView);
+        imageView = findViewById(R.id.mainImageView);
 
         random = new Random();
 
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void actionOnClick(){
-        mainImageView.setOnClickListener(new View.OnClickListener() {
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (random.nextInt(13)){
