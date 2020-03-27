@@ -1,5 +1,6 @@
 package com.example.astolfogaysounds;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Resources;
@@ -49,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
 
         random = new Random();
 
+        if (counter >= 50000L){
+            ActionBar actionBar = getSupportActionBar();
+            assert actionBar != null;
+            actionBar.setTitle("I'm idiot");
+        }
+
         actionOnClick();
     }
 
@@ -64,114 +71,140 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (randomValue){
                     case 0:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_1);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_1);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                     case 1:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_2);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_2);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                     case 2:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_3);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_3);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                     case 3:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_4);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_4);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                     case 4:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_5);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_5);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                     case 5:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_6);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_6);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                     case 6:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_7);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_7);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                     case 7:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_8);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_8);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                     case 8:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_9);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_9);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                     case 9:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_10);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_10);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                     case 10:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_11);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_11);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                     case 11:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_12);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_12);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                     case 12:{
-                        if (!mediaPlayer.isPlaying()){
-                            mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_13);
-                            mediaPlayer.start();
-                            oldRandomValue = randomValue;
+                        if (mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
                         }
+                        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.gay_sound_13);
+                        mediaPlayer.start();
+                        oldRandomValue = randomValue;
                         break;
                     }
                 }
 
                 counter++;
                 countTextView.setText(String.valueOf(counter));
-                if (counter == 100000L){
+
+                if (counter == 100L){
+                    Toast.makeText(MainActivity.this, "nice start!", Toast.LENGTH_LONG).show();
+                }
+
+                if (counter == 2000L){
+                    Toast.makeText(MainActivity.this, "enough. you'd rather read a book", Toast.LENGTH_LONG).show();
+                }
+
+                if (counter == 10000L){
+                    Toast.makeText(MainActivity.this, "why are you still here?", Toast.LENGTH_LONG).show();
+                }
+
+                if (counter == 50000L){
                     Toast.makeText(MainActivity.this, "are you alright? call an ambulance? or maybe 911?", Toast.LENGTH_LONG).show();
                 }
                 write(counter);
