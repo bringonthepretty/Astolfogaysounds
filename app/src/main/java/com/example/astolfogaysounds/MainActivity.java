@@ -182,7 +182,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mediaPlayer.release();
+        mediaPlayer.stop();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mediaPlayer.stop();
     }
 
     public long read() throws Resources.NotFoundException{
