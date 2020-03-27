@@ -58,6 +58,18 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setTitle("I'm idiot");
         }
 
+        if (counter >= 100L){
+            ActionBar actionBar = getSupportActionBar();
+            assert actionBar != null;
+            actionBar.setSubtitle("I'm on my way to thousands clicks");
+        }
+
+        if (counter >= 2000L){
+            ActionBar actionBar = getSupportActionBar();
+            assert actionBar != null;
+            actionBar.setSubtitle("Real world is nothing to me");
+        }
+
         actionOnClick();
     }
 
