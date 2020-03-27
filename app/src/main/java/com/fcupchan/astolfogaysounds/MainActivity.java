@@ -1,4 +1,4 @@
-package com.example.astolfogaysounds;
+package com.fcupchan.astolfogaysounds;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
