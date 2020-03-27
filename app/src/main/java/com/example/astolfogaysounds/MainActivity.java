@@ -3,10 +3,11 @@ package com.example.astolfogaysounds;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -237,5 +238,16 @@ public class MainActivity extends AppCompatActivity {
         } catch (FileNotFoundException ignored) {
         } catch (IOException ignored) {
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.mymenu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Toast.makeText(MainActivity.this, "special thanks to shino skk and pixel (yuxian)", Toast.LENGTH_LONG).show();
+        return super.onOptionsItemSelected(item);
     }
 }
