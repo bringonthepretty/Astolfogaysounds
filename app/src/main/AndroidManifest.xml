@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name="com.wah.astolfogaysounds.MainActivity" android:screenOrientation="portrait"
+        <activity android:name="com.wah.astolfogaysounds.activity.MainActivity" android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity"
             android:exported="true">
             <intent-filter>
