@@ -49,16 +49,14 @@ open class MainActivity: AppCompatActivity() {
         val text = when (counter) {
             in 1000L .. 4999L -> "Real world is nothing to me"
             in 5000L .. 9999L -> "I'm so retarded"
-            in 10000L .. 24999 -> "I'd lick Astolfo's feet"
-            in 25000L .. 49999 -> "Why would I ever talk to a woman"
+            in 10000L .. 24999L -> "I'd lick Astolfo's feet"
+            in 25000L .. 49999L -> "Why would I ever talk to a woman"
             in 50000L .. Long.MAX_VALUE -> "I spent 5 hours jerking of to Astolfo"
             else -> null
         }
 
-        text?.let { notNullText ->
-            supportActionBar?.let { notNullSupportActionBar ->
-                notNullSupportActionBar.title = notNullText
-            }
+        if (text != null && supportActionBar != null) {
+            supportActionBar!!.title = text
         }
     }
 
@@ -104,7 +102,7 @@ open class MainActivity: AppCompatActivity() {
             1000L -> "unhinged"
             5000L -> "omg piss off"
             10000L -> "actual cringe"
-            20000L -> "u gud bro?"
+            25000L -> "u gud bro?"
             50000L -> "nonce. cunt. degenerate. gay. go fuck yourself"
             else -> null
         }
