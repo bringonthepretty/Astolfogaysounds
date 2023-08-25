@@ -1,27 +1,38 @@
 package com.wah.astolfogaysounds.activity
 
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.wah.astolfogaysounds.R
+import com.wah.astolfogaysounds.audio.AudioProvider
 import com.wah.astolfogaysounds.io.read
 import com.wah.astolfogaysounds.io.write
-import kotlin.random.Random
 
 open class MainActivity: AppCompatActivity() {
-
-    private val random: Random = Random.Default
 
     private lateinit var imageView: ImageView
     private lateinit var counterTextView: TextView
 
-    private lateinit var mediaPlayer: MediaPlayer
+    private lateinit var audioProvider: AudioProvider
+
+    private val audioResourceList = listOf(
+        R.raw.gay_sound_1,
+        R.raw.gay_sound_2,
+        R.raw.gay_sound_3,
+        R.raw.gay_sound_4,
+        R.raw.gay_sound_5,
+        R.raw.gay_sound_6,
+        R.raw.gay_sound_7,
+        R.raw.gay_sound_8,
+        R.raw.gay_sound_9,
+        R.raw.gay_sound_10,
+        R.raw.gay_sound_11,
+        R.raw.gay_sound_12,
+        R.raw.gay_sound_13)
 
     private var counter = 0L
-    private var oldRandomValue = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,16 +44,21 @@ open class MainActivity: AppCompatActivity() {
         counter = read(this)
 
         counterTextView.text = counter.toString()
-        mediaPlayer = MediaPlayer.create(this, R.raw.gay_sound_1)
+        audioProvider = AudioProvider(audioResourceList, this)
 
         setTitle()
         setActionOnClick()
     }
 
+    override fun onResume() {
+        super.onResume()
+        audioProvider.init()
+    }
+
     override fun onPause() {
         super.onPause()
         write(this, counter)
-        mediaPlayer.stop()
+        audioProvider.stopAndReleaseAll()
     }
 
     private fun setTitle() {
@@ -62,32 +78,7 @@ open class MainActivity: AppCompatActivity() {
 
     private fun setActionOnClick() {
         imageView.setOnClickListener {
-            var randomValue: Int
-
-            do {
-                randomValue = random.nextInt(13)
-            } while (randomValue == oldRandomValue)
-
-            if (!mediaPlayer.isPlaying) {
-                val resourceCode = when (randomValue) {
-                    1 -> R.raw.gay_sound_2
-                    2 -> R.raw.gay_sound_3
-                    3 -> R.raw.gay_sound_4
-                    4 -> R.raw.gay_sound_5
-                    5 -> R.raw.gay_sound_6
-                    6 -> R.raw.gay_sound_7
-                    7 -> R.raw.gay_sound_8
-                    8 -> R.raw.gay_sound_9
-                    9 -> R.raw.gay_sound_10
-                    10 -> R.raw.gay_sound_11
-                    11 -> R.raw.gay_sound_12
-                    12 -> R.raw.gay_sound_13
-                    else -> R.raw.gay_sound_1
-                }
-                mediaPlayer = MediaPlayer.create(this, resourceCode)
-                mediaPlayer.start()
-                oldRandomValue = randomValue
-            }
+            audioProvider.playRandom()
 
             counter++
             counterTextView.text = counter.toString()
